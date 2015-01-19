@@ -23,7 +23,7 @@ class Turtle < ActiveRecord::Base
       transitions from: :walking, to: :head_pulling
     end
 
-    event :show do
+    event :appear do
       transitions from: :head_pulling, to: :walking
     end
   end
