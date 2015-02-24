@@ -1,2 +1,8 @@
-<h1>Turtles#show</h1>
-<p>Find me in app/views/turtles/show.html.erb</p>
+<p>亀の名前:<%= @kame.name %></p>
+
+<p>亀の状態:<%= t("state.#{@kame.aasm_state}") %></p>
+
+<%- @kame.aasm.events(permitted: true).each do |event| %>
+  <%= link_to t("action.#{event.name}"), turtles_act_path(event: event.name), method: :post %>
+<% end %>
+

@@ -1,0 +1,12 @@
+ja:
+  state:
+    sleeping: スヤスヤ眠っています
+    walking: ノロノロ歩いています
+    overturning: ひっくり返ってバタバタしています
+    head_pulling: 甲羅に隠れてじっとしています
+  action:
+    walk: '歩く'
+    sleep: '眠る'
+    push: '押す'
+    hide: '隠れる'
+    appear: '頭を出す'
