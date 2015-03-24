@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324102847) do
+ActiveRecord::Schema.define(version: 20150324103431) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20150324102847) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "shells", force: true do |t|
+    t.integer  "turtle_id"
+    t.integer  "age"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shells", ["turtle_id"], name: "index_shells_on_turtle_id"
 
   create_table "taggables", force: true do |t|
     t.integer  "post_id"
