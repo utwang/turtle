@@ -9,6 +9,7 @@
 
 <div>
   <%= link_to '今まで使ってきた甲羅', shell_path %>
+  <%= link_to '甲羅を脱皮', edit_shell_path %>
 </div>
 
 <%- @kame.aasm.events(permitted: true).each do |event| %>

@@ -1,0 +1,27 @@
+<h1>甲羅の更新履歴</h1>
+<table>
+  <tr>
+    <th>No</th>
+    <th>色</th>
+    <th>使用年数</th>
+    <th>event</th>
+  </tr>
+  <% @shells.each_with_index do |version, i| %>
+    <% shell = version.reify %>
+    <tr>
+      <td><%= version.id %></td>
+      <td>
+        <%= shell.try(:color) %>
+        <div style="display: inline-block; width: 15px; height: 15px; background-color: <%= shell.try(:color) %>"></div>
+      </td>
+      <td>
+        <% if shell.present? %>
+          <%= shell.try(:age) %>年
+        <% end %>
+      </td>
+      <td><%= version.event %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to '戻る', turtles_show_path %>
