@@ -1,6 +1,8 @@
 class Turtle < ActiveRecord::Base
   include AASM
 
+  has_one :shell
+
   aasm do
     state :sleeping, initial: true
     state :walking

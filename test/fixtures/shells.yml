@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  turtle_id: 
+  age: 1
+  color: MyString
+
+two:
+  turtle_id: 
+  age: 1
+  color: MyString

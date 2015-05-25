@@ -15,21 +15,4 @@ class TurtlesController < ApplicationController
     redirect_to turtles_show_path
   end
 
-
-
-
-  def walk
-  end
-
-  def sleep
-  end
-
-  def push
-  end
-
-  def hide
-  end
-
-  def appear
-  end
 end

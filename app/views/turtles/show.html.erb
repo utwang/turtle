@@ -1,8 +1,19 @@
 <p>亀の名前:<%= @kame.name %></p>
 
 <p>亀の状態:<%= t("state.#{@kame.aasm_state}") %></p>
+<div>
+  <div>甲羅の色: <%= @kame.shell.color %><div style="display: inline-block; width: 15px; height: 15px; background-color: <%= @kame.shell.color %>"></div>
+  </div>
+  <div>甲羅の使用年数: <%= @kame.shell.age %>年</div>
+</div>
+
+<div>
+  <%= link_to '今まで使ってきた甲羅', shell_path %>
+  <%= link_to '甲羅を脱皮', edit_shell_path %>
+</div>
 
 <%- @kame.aasm.events(permitted: true).each do |event| %>
   <%= link_to t("action.#{event.name}"), turtles_act_path(event: event.name), method: :post %>
 <% end %>
+
 
