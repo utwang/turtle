@@ -2,6 +2,7 @@ class Turtle < ActiveRecord::Base
   include AASM
 
   has_one :shell
+  has_many :eggs
 
   aasm do
     state :sleeping, initial: true

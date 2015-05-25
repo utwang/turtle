@@ -11,34 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324103431) do
+ActiveRecord::Schema.define(version: 20150525023134) do
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
-    t.string   "content"
+    t.string   "content",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
-  create_table "posts", force: true do |t|
-    t.string   "name"
+  create_table "eggs", force: :cascade do |t|
+    t.integer  "turtle_id"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "eggs", ["turtle_id"], name: "index_eggs_on_turtle_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "shells", force: true do |t|
+  create_table "shells", force: :cascade do |t|
     t.integer  "turtle_id"
     t.integer  "age"
-    t.string   "color"
+    t.string   "color",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "shells", ["turtle_id"], name: "index_shells_on_turtle_id"
 
-  create_table "taggables", force: true do |t|
+  create_table "taggables", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "tag_id"
     t.datetime "created_at"
@@ -48,24 +57,24 @@ ActiveRecord::Schema.define(version: 20150324103431) do
   add_index "taggables", ["post_id"], name: "index_taggables_on_post_id"
   add_index "taggables", ["tag_id"], name: "index_taggables_on_tag_id"
 
-  create_table "tags", force: true do |t|
-    t.string   "name"
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "turtles", force: true do |t|
-    t.string   "name"
-    t.string   "aasm_state"
+  create_table "turtles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "aasm_state", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "versions", force: true do |t|
-    t.string   "item_type",  null: false
-    t.integer  "item_id",    null: false
-    t.string   "event",      null: false
-    t.string   "whodunnit"
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  limit: 255, null: false
+    t.integer  "item_id",                null: false
+    t.string   "event",      limit: 255, null: false
+    t.string   "whodunnit",  limit: 255
     t.text     "object"
     t.datetime "created_at"
   end
