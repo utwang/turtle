@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.1'
 gem 'aasm'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
+gem 'ransack'
 
 # debug
 gem 'better_errors'
