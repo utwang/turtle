@@ -2,7 +2,7 @@ class Turtle < ActiveRecord::Base
   include AASM
 
   has_one :shell
-  has_many :eggs
+  has_many :eggs, ->(record) { where(id: record.id - 1) }
 
   aasm do
     state :sleeping, initial: true
